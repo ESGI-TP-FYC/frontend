@@ -1,0 +1,3 @@
+{
+  "BASE_URL": "$REACT_APP_PRODUCTION_URL"
+}
