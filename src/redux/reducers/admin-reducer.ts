@@ -1,8 +1,8 @@
 import {
-    PERFUME_ADDED_SUCCESS,
-    PERFUME_UPDATED_SUCCESS,
-    PERFUME_ADDED_FAILURE,
-    PERFUME_UPDATED_FAILURE,
+    PRODUCT_ADDED_SUCCESS,
+    PRODUCT_UPDATED_SUCCESS,
+    PRODUCT_ADDED_FAILURE,
+    PRODUCT_UPDATED_FAILURE,
     FETCH_USER_INFO_SUCCESS,
     FETCH_ALL_USERS_SUCCESS,
     FETCH_ALL_USERS_ORDERS_SUCCESS,
@@ -14,8 +14,9 @@ import {
     FETCH_USER_ORDERS_BY_QUERY_SUCCESS,
     LOADING_DATA
 } from "../action-types/admin-action-types";
-import {Order, ProductErrors, User} from "../../types/types";
+import {AuctionErrors, Order, ProductErrors, User} from "../../types/types";
 import {AdminActionTypes} from "../action-types/admin-action-types";
+import {Action} from "redux";
 
 export type InitialStateType = {
     orders: Array<Order>
@@ -26,6 +27,8 @@ export type InitialStateType = {
     isProductAdded: boolean
     isProductEdited: boolean
     isLoaded: boolean
+    auctionErrors: Partial<AuctionErrors>
+    isAuctionAdded: boolean
 };
 
 const initialState: InitialStateType = {
@@ -36,7 +39,9 @@ const initialState: InitialStateType = {
     errors: {},
     isProductAdded: false,
     isProductEdited: false,
-    isLoaded: false
+    isLoaded: false,
+    auctionErrors: {},
+    isAuctionAdded: false
 };
 
 const reducer = (state: InitialStateType = initialState, action: AdminActionTypes): InitialStateType => {
@@ -45,16 +50,16 @@ const reducer = (state: InitialStateType = initialState, action: AdminActionType
         case LOADING_DATA:
             return {...state, isLoaded: true};
 
-        case PERFUME_ADDED_SUCCESS:
+        case PRODUCT_ADDED_SUCCESS:
             return {...state, isProductAdded: true, errors: {}};
 
-        case PERFUME_ADDED_FAILURE:
+        case PRODUCT_ADDED_FAILURE:
             return {...state, isProductAdded: false, errors: action.payload};
 
-        case PERFUME_UPDATED_SUCCESS:
+        case PRODUCT_UPDATED_SUCCESS:
             return {...state, isProductEdited: true, errors: {}};
 
-        case PERFUME_UPDATED_FAILURE:
+        case PRODUCT_UPDATED_FAILURE:
             return {...state, isProductEdited: false, errors: action.payload};
 
         case FETCH_USER_INFO_SUCCESS:

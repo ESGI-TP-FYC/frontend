@@ -161,3 +161,50 @@ export type BrandType = {
     name: string
     url: string
 };
+
+export type Bid = {
+    id: number
+    userEmail: string
+    amount: number
+    date: Date
+};
+export type BidProduct = {
+    id?: number
+    productTitle: string
+    productr: string
+    year: number
+    country: string
+    type: string
+    volume: number
+    productGender: string
+    description: string
+    filename: string
+    price: number
+    file: any
+    bids: Array<Bid>
+};
+
+export type BidProductErrors = {
+    productTitleError: string
+    productrError: string
+    yearError: string
+    countryError: string
+    typeError: string
+    volumeError: string
+    productGenderError: string
+    fragranceTopNotesError: string
+    fragranceMiddleNotesError: string
+    fragranceBaseNotesError: string
+    priceError: string
+};
+export type Auction = {
+    id: number;
+    dateDebut: Date;
+    dateFin: Date;
+    products: Array<BidProduct>;
+};
+
+export type AuctionErrors = {
+    dateDebutError: string
+    dateFinError: string
+};

@@ -18,6 +18,8 @@ import ManageUser from "./ManageUser/ManageUser";
 import EditProduct from "./EditProduct/EditProduct";
 import ManageUserOrder from "./ManageUserOrder/ManageUserOrder";
 import "./Account.css";
+import AddAuction from "./AddAuction/AddAuction";
+import AuctionList from "./AuctionList/AuctionList";
 
 const Account: FC = () => {
     const dispatch = useDispatch();
@@ -40,9 +42,15 @@ const Account: FC = () => {
                             <NavLink to={"/account/admin/add"}
                                      className="account-sidebar-link nav-link"
                                      activeClassName="is-active">Add product</NavLink>
+                            <NavLink to={"/account/admin/auctions/add"}
+                                     className="account-sidebar-link nav-link"
+                                     activeClassName="is-active">Add auction</NavLink>
                             <NavLink to={"/account/admin/products"}
                                      className="account-sidebar-link nav-link"
                                      activeClassName="is-active">List of products</NavLink>
+                            <NavLink to={"/account/admin/auction"}
+                                     className="account-sidebar-link nav-link"
+                                     activeClassName="is-active">List of auctions</NavLink>
                             <NavLink to={"/account/admin/orders"}
                                      className="account-sidebar-link nav-link"
                                      activeClassName="is-active">List of all orders</NavLink>
@@ -69,6 +77,8 @@ const Account: FC = () => {
                     {(localStorage.getItem("userRole") === "ADMIN") ?
                         <>
                             <Route path="/account/admin/add" component={() => <AddProduct/>}/>
+                            <Route path="/account/admin/auctions/add" component={() => <AddAuction/>}/>
+                            <Route path="/account/admin/auction" component={() => <AuctionList/>}/>
                             <Route exact path="/account/admin/products" component={() => <ProductList/>}/>
                             <Route exact path="/account/admin/products/:id" component={(props: RouteComponentProps<{ id: string }>) => <EditProduct {...props}/>}/>
                             <Route exact path="/account/admin/orders" component={() => <OrdersList/>}/>

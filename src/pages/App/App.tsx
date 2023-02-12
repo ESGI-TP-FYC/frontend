@@ -16,6 +16,7 @@ import ResetPassword from "../ResetPassword/ResetPassword";
 import Cart from "../Cart/Cart";
 import Element from "../Element/Element";
 import OAuth2RedirectHandler from "../../utils/oauth2/OAuth2RedirectHandler";
+import AuctionList from "../Account/AuctionList/AuctionList";
 
 const App: FC = () => {
     return (
@@ -29,6 +30,7 @@ const App: FC = () => {
                 <Route exact path="/reset/:code" component={ResetPassword}/>
                 <Route exact path="/activate/:code" component={Login}/>
                 <Route exact path="/menu" component={Menu}/>
+                <Route exact path="/auctions" component={AuctionList}/>
                 <Route exact path="/product/:id" component={Element}/>
                 <Route exact path="/contacts" component={Contacts}/>
                 <Route exact path="/cart" component={Cart}/>

@@ -67,6 +67,10 @@ const NavBar: FC = () => {
                                     <span className="nav-link pl-5 pr-5">PRODUCTS</span></Link>
                             </li>
                             <li className="nav-item">
+                                <Link to={{pathname: "/auctions", state: {id: "all"}}}>
+                                    <span className="nav-link pl-5 pr-5">AUCTIONS</span></Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link to={"/contacts"}><span className="nav-link pl-5 pr-5">CONTACTS</span></Link>
                             </li>
                         </ul>

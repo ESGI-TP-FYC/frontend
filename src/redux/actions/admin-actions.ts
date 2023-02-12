@@ -1,54 +1,54 @@
 import {Order, ProductErrors, User} from "../../types/types";
 import {
+    AddProductFailureActionType,
+    AddProductSuccessActionType, FETCH_ALL_USERS_BY_QUERY_SUCCESS,
     FETCH_ALL_USERS_ORDERS_SUCCESS,
     FETCH_ALL_USERS_SUCCESS,
+    FETCH_USER_INFO_BY_QUERY_SUCCESS,
     FETCH_USER_INFO_SUCCESS,
+    FETCH_USER_ORDERS_BY_QUERY_SUCCESS,
     FETCH_USER_ORDERS_SUCCESS,
     FORM_RESET,
-    PERFUME_ADDED_FAILURE,
-    PERFUME_ADDED_SUCCESS,
-    PERFUME_UPDATED_FAILURE,
-    PERFUME_UPDATED_SUCCESS,
-    FETCH_ALL_USERS_BY_QUERY_SUCCESS,
-    FETCH_ALL_USERS_ORDERS_BY_QUERY_SUCCESS,
-    FETCH_USER_INFO_BY_QUERY_SUCCESS,
-    FETCH_USER_ORDERS_BY_QUERY_SUCCESS,
-    LOADING_DATA,
     GetAllUsersActionType,
+    GetAllUsersByQueryActionType,
     GetAllUsersOrdersActionType,
+    GetAllUsersOrdersByQueryActionType,
     GetUserInfoActionType,
+    GetUserInfoByQueryActionType,
     GetUserOrdersActionType,
+    GetUserOrdersByQueryActionType,
+    LOADING_DATA,
+    LoadingDataActionType,
+    PRODUCT_ADDED_FAILURE,
+    PRODUCT_ADDED_SUCCESS,
+    PRODUCT_UPDATED_FAILURE,
+    PRODUCT_UPDATED_SUCCESS,
     ResetActionType,
     UpdateProductFailureActionType,
     UpdateProductSuccessActionType,
-    AddProductFailureActionType,
-    AddProductSuccessActionType,
-    GetAllUsersByQueryActionType,
-    GetAllUsersOrdersByQueryActionType,
-    GetUserOrdersByQueryActionType,
-    GetUserInfoByQueryActionType,
-    LoadingDataActionType
+    FETCH_ALL_USERS_ORDERS_BY_QUERY_SUCCESS
 } from "../action-types/admin-action-types";
+import {Action} from "redux";
 
 export const loadingData = (): LoadingDataActionType => ({
     type: LOADING_DATA
 });
 
 export const addProductSuccess = (): AddProductSuccessActionType => ({
-    type: PERFUME_ADDED_SUCCESS
+    type: PRODUCT_ADDED_SUCCESS
 });
 
 export const addProductFailure = (error: ProductErrors): AddProductFailureActionType => ({
-    type: PERFUME_ADDED_FAILURE,
+    type: PRODUCT_ADDED_FAILURE,
     payload: error
 });
 
 export const updateProductSuccess = (): UpdateProductSuccessActionType => ({
-    type: PERFUME_UPDATED_SUCCESS
+    type: PRODUCT_UPDATED_SUCCESS
 });
 
 export const updateProductFailure = (error: ProductErrors): UpdateProductFailureActionType => ({
-    type: PERFUME_UPDATED_FAILURE,
+    type: PRODUCT_UPDATED_FAILURE,
     payload: error
 });
 

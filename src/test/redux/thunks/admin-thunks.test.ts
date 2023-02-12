@@ -55,21 +55,21 @@ describe("admin actions", () => {
         expect(store.getActions()).toEqual(expectedActions);
     });
 
-    test("addProduct should dispatches PERFUME_ADDED_FAILURE on failure", async () => {
+    test("addProduct should dispatches PRODUCT_ADDED_FAILURE on failure", async () => {
         mock.onPost(API_BASE_URL + "/admin/add").reply(400, productErrorData);
         await store.dispatch(addProduct(bodyFormData));
         let expectedActions = [addProductFailure(productErrorData)];
         expect(store.getActions()).toEqual(expectedActions);
     });
 
-    test("updateProduct should dispatches PERFUME_UPDATED_SUCCESS and FETCH_PERFUME_SUCCESS on success", async () => {
+    test("updateProduct should dispatches PRODUCT_UPDATED_SUCCESS and FETCH_PRODUCT_SUCCESS on success", async () => {
         mock.onPut(API_BASE_URL + "/admin/edit").reply(200, productData);
         await store.dispatch(updateProduct(bodyFormData));
         let expectedActions = [updateProductSuccess(), fetchProductSuccess(productData)];
         expect(store.getActions()).toEqual(expectedActions);
     });
 
-    test("updateProduct should dispatches PERFUME_UPDATED_FAILURE on failure", async () => {
+    test("updateProduct should dispatches PRODUCT_UPDATED_FAILURE on failure", async () => {
         mock.onPut(API_BASE_URL + "/admin/edit").reply(400, productErrorData);
         await store.dispatch(updateProduct(bodyFormData));
         let expectedActions = [updateProductFailure(productErrorData)];

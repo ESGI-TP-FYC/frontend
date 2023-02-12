@@ -6,6 +6,7 @@ import cartReducer from "./cart-reducer";
 import adminReducer from "./admin-reducer";
 import orderReducer from "./order-reducer";
 import userReducer from "./user-reducer";
+import auctionReducer from "./auction-reducer";
 
 const rootReducer = combineReducers({
     product: productReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     cart: cartReducer,
     admin: adminReducer,
     order: orderReducer,
-    user: userReducer
+    user: userReducer,
+    auction: auctionReducer
 });
 
 type RootReducerType = typeof rootReducer;

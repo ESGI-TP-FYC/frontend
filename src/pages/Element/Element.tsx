@@ -8,7 +8,7 @@ import {CompatClient, Stomp} from '@stomp/stompjs';
 import StarRatingComponent from 'react-star-rating-component';
 
 import {WEBSOCKET_URL} from "../../utils/constants/url";
-import {fetchProductByQuery, fetchProductReviewsWS} from "../../redux/thunks/product-thunks";
+import {fetchProduct, fetchProductByQuery, fetchProductReviewsWS} from "../../redux/thunks/product-thunks";
 import {addReviewToProduct, resetForm} from "../../redux/thunks/user-thunks";
 import {AppStateType} from "../../redux/reducers/root-reducer";
 import {Product, Review, ReviewData, ReviewError} from "../../types/types";
@@ -35,8 +35,8 @@ const Element: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
 
     useEffect(() => {
         // GraphQL example
-        dispatch(fetchProductByQuery(match.params.id));
-        // dispatch(fetchProduct(match.params.id));
+        //dispatch(fetchProductByQuery(match.params.id));
+         dispatch(fetchProduct(match.params.id));
         dispatch(resetForm());
         window.scrollTo(0, 0);
         const socket = new SockJS(WEBSOCKET_URL);
@@ -87,7 +87,6 @@ const Element: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
                 value={productRating}/>
         );
     };
-
     return (
         <div className="container mt-5 pb-5">
             {loading ? <Spinner/> : <>
@@ -95,12 +94,11 @@ const Element: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
                 <div className="row">
                     <div className="col-md-5">
                         <div>
-                            <img src={product.filename} className="rounded mx-auto w-100"/>
+                            <img src={`data:image/jpeg;base64,${product.file}`} className="rounded mx-auto w-100"/>
                         </div>
                     </div>
                     <div className="col-md-7">
                         <h2>{product.productTitle}</h2>
-                        <h3>{product.productr}</h3>
                         <p>Product code: <span>{product.id}</span></p>
                         <div className="row">
                             <div className="col-md-2">
@@ -139,8 +137,8 @@ const Element: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
                                 <td>{product.year}</td>
                             </tr>
                             <tr>
-                                <td>Volume:</td>
-                                <td><span>{product.volume}</span> ml.</td>
+                                <td>Size:</td>
+                                <td><span>{product.volume}</span></td>
                             </tr>
                             <tr>
                                 <td>Manufacturer country:</td>

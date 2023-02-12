@@ -12,7 +12,7 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     uri: API_BASE_URL,
     cache: new InMemoryCache()
 });
-console.log(API_BASE_URL);
+
 ReactDOM.render(
     <ApolloProvider client={client}>
         <Provider store={store}>

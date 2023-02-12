@@ -1,13 +1,13 @@
 import {Product, Review} from "../../types/types";
 import {
-    LOADING_PERFUME,
+    LOADING_PRODUCT,
     FETCH_PRODUCTS,
-    FETCH_PERFUME_SUCCESS,
+    FETCH_PRODUCT_SUCCESS,
     FETCH_PRODUCTS_BY_FILTER_PARAMS_SUCCESS,
     FETCH_PRODUCTS_BY_GENDER_SUCCESS,
-    FETCH_PRODUCTS_BY_PERFUMER_SUCCESS,
+    FETCH_PRODUCTS_BY_PRODUCTR_SUCCESS,
     FETCH_PRODUCTS_BY_QUERY_SUCCESS,
-    FETCH_PERFUME_BY_QUERY_SUCCESS,
+    FETCH_PRODUCT_BY_QUERY_SUCCESS,
     ProductActionTypes
 } from "../action-types/product-action-types";
 
@@ -28,7 +28,7 @@ const initialState: InitialStateType = {
 const reducer = (state: InitialStateType = initialState, action: ProductActionTypes): InitialStateType => {
 
     switch (action.type) {
-        case LOADING_PERFUME:
+        case LOADING_PRODUCT:
             return {...state, isProductLoading: true};
 
         case FETCH_PRODUCTS:
@@ -37,16 +37,16 @@ const reducer = (state: InitialStateType = initialState, action: ProductActionTy
         case FETCH_PRODUCTS_BY_QUERY_SUCCESS:
             return {...state, products: action.payload, isProductLoading: false};
 
-        case FETCH_PERFUME_SUCCESS:
+        case FETCH_PRODUCT_SUCCESS:
             return {...state, product: action.payload, reviews: action.payload.reviews, isProductLoading: false};
 
-        case FETCH_PERFUME_BY_QUERY_SUCCESS:
+        case FETCH_PRODUCT_BY_QUERY_SUCCESS:
             return {...state, product: action.payload, reviews: action.payload.reviews, isProductLoading: false};
 
         case FETCH_PRODUCTS_BY_GENDER_SUCCESS:
             return {...state, products: action.payload, isProductLoading: false};
 
-        case FETCH_PRODUCTS_BY_PERFUMER_SUCCESS:
+        case FETCH_PRODUCTS_BY_PRODUCTR_SUCCESS:
             return {...state, products: action.payload, isProductLoading: false};
 
         case FETCH_PRODUCTS_BY_FILTER_PARAMS_SUCCESS:

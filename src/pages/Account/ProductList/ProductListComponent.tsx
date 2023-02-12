@@ -82,8 +82,8 @@ const ProductListComponent:FC<PropsType> = ({data, itemsPerPage,startFrom,search
                                         <div style={{height: "92px", display: "flex", justifyContent: "center", alignItems: "center"}}>
                                             <LazyLoadImage
                                                 effect="blur"
-                                                style={{width: "80px", marginTop: "20px"}}
-                                                src={product.filename}/>
+                                                style={{width: "120px", marginTop: "20px"}}
+                                                src={`data:image/jpeg;base64,${product.file}`}/>
                                         </div>
                                         <div className="card-body text-center">
                                             <StarRating productRating={product.productRating}/>

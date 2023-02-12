@@ -82,7 +82,7 @@ describe("user actions", () => {
         expect(store.getActions()).toEqual(expectedActions);
     });
 
-    test("addReviewToProduct should dispatches FETCH_PERFUME_SUCCESS and USER_ADDED_REVIEW_SUCCESS on success", async () => {
+    test("addReviewToProduct should dispatches FETCH_PRODUCT_SUCCESS and USER_ADDED_REVIEW_SUCCESS on success", async () => {
         mock.onPost(API_BASE_URL + "/users/review").reply(200, productData);
         await store.dispatch(addReviewToProduct(reviewData));
         let expectedActions = [fetchProductSuccess(productData), userAddedReviewSuccess()];
